@@ -583,12 +583,12 @@ const isMuted = ref(false)
   margin-top:0;
 }
 .card-mission {
-  margin-left: 300px;
+  margin-left: 400px;
   margin-top: -80px;
   clip-path: polygon(2% 0, 100% 0, 98% 100%, 0% 100%);
 }
 .card-vision {
-  margin-left: 600px;
+  margin-left: 900px;
   margin-top: -80px;
   clip-path: polygon(1% 0, 100% 0, 99% 100%, 0% 100%);
 }
@@ -643,8 +643,8 @@ const isMuted = ref(false)
 /* Overlayed Asset Animations */
 .overlay-circling {
   position: absolute;
-  left: 6vw;
-  bottom: 8vh;
+  left: 12vw;
+  bottom: 6vh;
   width: 200px;
   height: 200px;
   z-index: 3;
