@@ -5,10 +5,10 @@
         <img src="@/assets/logo.png" alt="Cyber War Room Logo" class="nav-logo-img" />
       </div>
       <div class="nav-right">
-        <router-link to="/" class="nav-trapezium" :class="{ active: $route.path === '/' }">HOME</router-link>
-        <router-link to="/about" class="nav-trapezium" :class="{ active: $route.path === '/about' }">ABOUT</router-link>
-        <router-link to="/scenarios" class="nav-trapezium" :class="{ active: $route.path === '/scenarios' }">SCENARIOS</router-link>
-        <router-link to="/pricing" class="nav-trapezium" :class="{ active: $route.path === '/pricing' }">PRICING</router-link>
+        <NavButton to="/" label="HOME" :active="$route.path === '/'" />
+        <NavButton to="/about" label="ABOUT" :active="$route.path === '/about'" />
+        <NavButton to="/scenarios" label="SCENARIOS" :active="$route.path === '/scenarios'" />
+        <NavButton to="/pricing" label="PRICING" :active="$route.path === '/pricing'" />
         <!-- Sound Icon Button -->
         <button class="sound-btn" @click="isMuted = !isMuted" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
           <svg v-if="isMuted" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
             <path d="M17.66 6.34a9 9 0 010 12.73" stroke="#b6eaff" stroke-width="2" fill="none"/>
           </svg>
         </button>
-        <router-link to="/login" class="nav-trapezium login-btn" :class="{ active: $route.path === '/login' }">LOGIN</router-link>
+        <NavButton to="/login" label="LOGIN" :active="$route.path === '/login'" />
       </div>
     </nav>
     <!-- Black-to-transparent overlay -->
@@ -65,6 +65,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import NavButton from './NavButton.vue'
 const $route = useRoute()
 const isMuted = ref(false)
 </script>
