@@ -494,13 +494,17 @@ onMounted(() => {
   flex-direction: column;
 }
 .loading-logo {
-  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
 }
 .loading-logo-img {
-  width: 60px;
-  height: 60px;
+  width: auto;
+  height: 56px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0;
   animation: glow 2s infinite alternate;
 }
 .loading-title {
