@@ -37,20 +37,9 @@
     <div class="blend-content-wrapper">
       <div class="blend-content">
         <h1 class="main-title">ABOUT</h1>
-        <div class="about-cards">
-          <div class="about-card card-what">
-            <h2>WHAT IS A WAR ROOM?</h2>
-            <p>Cyber War Room, is like you're in a war room, ground 0, trying to defend against cyber attacks, through the use of simulated training you will be stronger and more prepared.</p>
-          </div>
-          <div class="about-card card-mission">
-            <h2>OUR MISSION</h2>
-            <p>Empower individuals and organizations to better understand, prevent, and respond to cyber threats through immersive, role-based simulations that turn learning into action.</p>
-          </div>
-          <div class="about-card card-vision">
-            <h2>OUR VISION</h2>
-            <p>To become the leading gamified cybersecurity training platform, shaping a future where every professional is prepared to make smart, timely decisions in the face of digital crises.</p>
-          </div>
-        </div>
+        <img src="@/assets/aboutf1.png" alt="What is a War Room?" class="about-img about-img-what" />
+        <img src="@/assets/aboutf2 (1).png" alt="Our Mission" class="about-img about-img-mission" />
+        <img src="@/assets/aboutf3.png" alt="Our Vision" class="about-img about-img-vision" />
       </div>
     </div>
     <!-- Footer -->
@@ -695,5 +684,37 @@ const isMuted = ref(false)
 @keyframes hudbox-fadein {
   to { opacity: 0.92; }
 }
-
+.about-img {
+  display: block;
+  width: 560px;
+  max-width: 80vw;
+  position: absolute;
+  margin-top:40px;
+}
+.about-img-what {
+  left: 0;
+  top: 140px;
+}
+.about-img-mission {
+  left: 360px;
+  top: 290px;
+}
+.about-img-vision {
+  left: 700px;
+  top: 450px;
+}
+@media (max-width: 1200px) {
+  .about-img-what { left: 0; top: 120px; width: 44vw; }
+  .about-img-mission { left: 28vw; top: 220px; width: 44vw; }
+  .about-img-vision { left: 56vw; top: 320px; width: 44vw; }
+}
+@media (max-width: 800px) {
+  .about-img, .about-img-what, .about-img-mission, .about-img-vision {
+    position: static;
+    width: 90vw;
+    margin: 18px auto 0 auto;
+    left: unset;
+    top: unset;
+  }
+}
 </style> 

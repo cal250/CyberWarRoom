@@ -543,8 +543,8 @@ const scen2 = [
   width: 98vw;
   max-width: 1800px;
   margin: 18px 0 0 0;
-  border-radius: 18px;
-  box-shadow: 0 0 32px 0 rgba(34, 211, 238, 0.12);
+  /* border-radius: 18px; */
+  /* box-shadow: 0 0 32px 0 rgba(34, 211, 238, 0.12); */
   /* border: 2px solid #22d3ee; */
 }
 </style> 
