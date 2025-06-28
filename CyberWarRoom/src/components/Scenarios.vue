@@ -35,14 +35,48 @@
       <div class="blend-content">
         <h1 class="main-title">SCENARIOS</h1>
         <div class="scenarios-grid">
-          <!-- First row -->
-          <ScenarioCard title="RANSOMWARE RESPONSE" :image="img1" />
-          <ScenarioCard title="CLOUD INTRUSION" :image="img2" />
-          <ScenarioCard title="PHISHING ATTACK" :image="img3" />
-          <!-- Second row -->
-          <ScenarioCard title="DATA BREACH" :image="img4" />
-          <ScenarioCard title="INSIDER THREAT" :image="img5" />
-          <ScenarioCard title="SOCIAL ENGINEERING" :image="img6" />
+          <ScenarioCard
+            v-for="(card, idx) in scenarioCards"
+            :key="card.title"
+            :title="card.title"
+            :image="card.image"
+            :active="selectedScenario && selectedScenario.title === card.title"
+            @select="onSelectScenario(card)"
+          />
+        </div>
+      </div>
+      <!-- Overlay for selected scenario -->
+      <div v-if="showOverlay" class="scenario-overlay" @click.self="closeOverlay">
+        <div class="overlay-content">
+          <!-- Left: Scenario image and title -->
+          <div class="overlay-left">
+            <svg
+              class="responce-svg-card"
+              width="562" height="157" viewBox="0 0 562 157" fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="560" height="155.69" transform="translate(1 1)" fill="white" fill-opacity="0.08"/>
+              <path d="M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+              <path d="M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+              <path d="M558.48 123H561V156.69H527.31V154.17H558.48V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+              <path d="M3.52 123H1V156.69H34.69V154.17H3.52V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+              <foreignObject x="40" y="20" width="480" height="120">
+                <div class="svg-message-content" xmlns="http://www.w3.org/1999/xhtml">
+                  <img v-if="selectedScenario?.image" :src="selectedScenario.image" class="overlay-scenario-img" alt="Scenario image" />
+                  <h2>{{ selectedScenario?.title }}</h2>
+                </div>
+              </foreignObject>
+            </svg>
+          </div>
+          <!-- Right: Scenario details -->
+          <div class="overlay-right">
+            <div class="overlay-details-panel">
+              <slot name="details">
+                <div v-html="selectedScenario?.details"></div>
+              </slot>
+            </div>
+          </div>
+          <button class="close-overlay-btn" @click="closeOverlay">&times;</button>
         </div>
       </div>
     </div>
@@ -80,17 +114,24 @@ import img6 from '@/assets/adi-goldstein-EUsVwEOsblE-unsplash.jpg'
 const $route = useRoute()
 const isMuted = ref(false)
 
-// Example scenario data
-const scen1 = [
-  { title: 'RANSOMWARE RESPONSE', image: new URL('@/assets/scen1/ransomware.jpg', import.meta.url).href },
-  { title: 'CLOUD INTRUSION', image: new URL('@/assets/scen1/cloud.jpg', import.meta.url).href },
-  { title: 'PHISHING ATTACK', image: new URL('@/assets/scen1/phishing.jpg', import.meta.url).href }
+const scenarioCards = [
+  { title: 'RANSOMWARE RESPONSE', image: img1, message: 'Respond to a simulated ransomware attack. Make critical decisions to protect your organization.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>The year is 2042. You're a junior analyst at SynSec, a global cybersecurity agency defending against digital warfare, deepfake leaks, rogue AI, and zero-day exploits. But when your team lead mysteriously disappears and the agency is compromised from the inside, you're thrown into a race against time to stop a massive cyberattack called Black Frost.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – PHISHING LABYRINTH:</b> You enter a simulation of a fake corporate email system. Your task: Spot real vs phishing emails before time runs out. Each mistake lets malware infect more of the system.</li><li><b>MISSION 2 – DEEPFAKE DECRYPTION:</b> A celebrity is being blackmailed with an AI-generated video. Your job: Analyze audio patterns, video artifacts, and metadata to detect tampering.</li><li><b>MISSION 3 – PHYSICAL BREACH:</b> You go undercover at a tech convention to locate a rogue USB keylogger. Dialogue choices affect how much info NPCs reveal.</li></ul></div><div class='details-section'><h3>FINAL MISSION – STOP THE PAYLOAD</h3></div></div>` },
+  { title: 'CLOUD INTRUSION', image: img2, message: 'Investigate and mitigate a cloud infrastructure breach. Trace the attacker and secure your assets.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Your company's cloud environment is under attack. Trace the breach, identify the attacker's methods, and secure your assets before data is lost.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – LOG HUNT:</b> Analyze cloud logs to find the attacker's entry point.</li><li><b>MISSION 2 – CONTAINMENT:</b> Isolate compromised resources and prevent lateral movement.</li><li><b>MISSION 3 – RECOVERY:</b> Restore services and report the incident to stakeholders.</li></ul></div></div>` },
+  { title: 'PHISHING ATTACK', image: img3, message: 'Identify and respond to a sophisticated phishing campaign targeting your company.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A wave of phishing emails is targeting your company. Identify malicious messages and educate your team to prevent compromise.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – INBOX INSPECTION:</b> Review employee inboxes for suspicious emails.</li><li><b>MISSION 2 – EMPLOYEE TRAINING:</b> Conduct a simulated phishing test and analyze results.</li><li><b>MISSION 3 – INCIDENT RESPONSE:</b> Respond to a successful phishing attack and mitigate damage.</li></ul></div></div>` },
+  { title: 'DATA BREACH', image: img4, message: 'Contain and analyze a major data breach. Communicate with stakeholders and regulators.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A major data breach has occurred. Analyze the breach, contain the threat, and communicate with stakeholders and regulators.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – BREACH ANALYSIS:</b> Determine the scope and impact of the breach.</li><li><b>MISSION 2 – CONTAINMENT:</b> Stop further data loss and secure affected systems.</li><li><b>MISSION 3 – PUBLIC RELATIONS:</b> Prepare statements and handle media inquiries.</li></ul></div></div>` },
+  { title: 'INSIDER THREAT', image: img5, message: 'Detect and stop a malicious insider before critical data is exfiltrated.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Suspicious activity suggests an insider is planning to steal sensitive data. Investigate and stop the threat before it's too late.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – USER BEHAVIOR ANALYSIS:</b> Review logs for unusual access patterns.</li><li><b>MISSION 2 – INTERVIEW:</b> Question employees and gather evidence.</li><li><b>MISSION 3 – PREVENTION:</b> Implement controls to prevent future incidents.</li></ul></div></div>` },
+  { title: 'SOCIAL ENGINEERING', image: img6, message: 'Navigate a social engineering scenario and train your team to recognize manipulation.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Attackers are using social engineering tactics to manipulate employees. Train your team to recognize and resist these attacks.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – PHONE SCAM:</b> Identify vishing attempts targeting staff.</li><li><b>MISSION 2 – PHYSICAL SECURITY:</b> Test building access controls against tailgating.</li><li><b>MISSION 3 – AWARENESS CAMPAIGN:</b> Launch a company-wide security awareness campaign.</li></ul></div></div>` },
 ]
-const scen2 = [
-  { title: 'CLOUD INTRUSION', image: new URL('@/assets/scen2/cloud2.jpg', import.meta.url).href },
-  { title: 'RANSOMWARE RESPONSE', image: new URL('@/assets/scen2/ransomware2.jpg', import.meta.url).href },
-  { title: 'PHISHING ATTACK', image: new URL('@/assets/scen2/phishing2.jpg', import.meta.url).href }
-]
+const selectedScenario = ref(null)
+const showOverlay = ref(false)
+function onSelectScenario(card) {
+  selectedScenario.value = card
+  showOverlay.value = true
+}
+function closeOverlay() {
+  showOverlay.value = false
+  selectedScenario.value = null
+}
 </script>
 
 <style scoped>
@@ -619,5 +660,135 @@ const scen2 = [
     max-width: 100%;
     max-height: 180px;
   }
+}
+.scenario-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 20, 40, 0.96);
+  backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 0 64px 8px #22d3ee44, 0 0 0 2px #22d3ee22 inset;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+.overlay-content {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  max-width: 1200px;
+  min-height: 60vh;
+  background: none;
+  position: relative;
+  z-index: 2010;
+}
+.overlay-left {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2vw 0 0;
+}
+.overlay-scenario-img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 16px #22d3ee99;
+}
+.overlay-right {
+  flex: 2 1 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.overlay-details-panel {
+  background: rgba(20, 30, 50, 0.98);
+  border: 2px solid #22d3ee;
+  box-shadow: 0 0 48px 0 #22d3ee55, 0 0 0 2px #22d3ee22 inset;
+  border-radius: 18px;
+  padding: 36px 40px;
+  margin-left: 0;
+  min-width: 400px;
+  max-width: 600px;
+  color: #fff;
+  font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 1.12rem;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+.details-section h3 {
+  color: #b6eaff;
+  font-size: 1.1rem;
+  margin: 18px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.details-section p, .details-section ul {
+  margin: 0 0 10px 0;
+  color: #fff;
+  font-size: 1.02rem;
+}
+.details-section ul {
+  padding-left: 18px;
+}
+.details-section li {
+  margin-bottom: 8px;
+}
+.responce-svg-card {
+  box-shadow: 0 0 48px 0 #22d3eecc, 0 0 0 2px #22d3ee44 inset;
+  border-radius: 18px;
+  background: rgba(34, 211, 238, 0.04);
+  max-width: 90vw;
+  max-height: 60vh;
+  filter: drop-shadow(0 0 24px #00fff7cc);
+}
+.svg-message-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.1rem;
+  padding: 0 12px;
+  word-break: break-word;
+}
+.svg-message-content h2 {
+  font-size: 1.3rem;
+  margin: 0 0 8px 0;
+  color: #b6eaff;
+}
+.close-overlay-btn {
+  position: absolute;
+  top: 3vh;
+  right: 3vw;
+  font-size: 2.2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2100;
+  transition: color 0.2s;
+}
+.close-overlay-btn:hover {
+  color: #22d3ee;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.scenario-item.active {
+  box-shadow: 0 0 48px 12px #22d3ee, 0 0 96px 24px #00fff7a0;
+  transform: scale(1.045);
+  z-index: 3;
+  border-radius: 18px;
 }
 </style> 
