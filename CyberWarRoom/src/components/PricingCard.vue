@@ -10,10 +10,10 @@
       <span class="price"><slot name="price"></slot></span>
     </div>
     <button class="select-btn"><slot name="button">SELECT</slot></button>
-    <svg class="card-bg-svg" width="420" height="722" viewBox="0 0 420 722" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M420 600.028L328.029 692H0V141.664L109.664 32H420V600.028Z" fill="#070708" fill-opacity="0.52"/>
-      <path d="M420 600.028L328.029 692H0V141.664L109.664 32H420V600.028Z" stroke="#66E0F8"/>
-      <rect width="340" height="356" x="40" y="161" fill="white" fill-opacity="0.08"/>
+    <svg class="card-bg-svg" width="360" height="620" viewBox="0 0 360 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M360 515.028L281.168 595H0V121.664L94.168 27.5H360V515.028Z" fill="#070708" fill-opacity="0.52"/>
+      <path d="M360 515.028L281.168 595H0V121.664L94.168 27.5H360V515.028Z" stroke="#66E0F8"/>
+      <rect width="292" height="306" x="34" y="138" fill="white" fill-opacity="0.08"/>
       <!-- corner decorations omitted for brevity -->
     </svg>
   </div>
@@ -25,9 +25,9 @@
 <style scoped>
 .pricing-card {
   position: relative;
-  width: 420px;
-  height: 722px;
-  margin: 0 60px;
+  width: 360px;
+  height: 620px;
+  margin: 0 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,71 +50,71 @@
   background: #fff;
   color: #222;
   font-family: 'Oswald', Arial, sans-serif;
-  font-size: 2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 0.6rem 2.8rem;
+  padding: 0.5rem 2.2rem;
   border-radius: 4px 4px 0 0;
   box-shadow: 0 2px 12px 0 rgba(34, 211, 238, 0.08);
   z-index: 2;
-  min-width: 160px;
+  min-width: 140px;
   text-align: center;
 }
 .features-box {
   position: absolute;
-  top: 140px;
+  top: 120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
-  min-height: 320px;
+  width: 280px;
+  min-height: 280px;
   background: rgba(10, 20, 40, 0.82);
   
   border-radius: 8px;
   color: #fff;
   font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.1rem;
-  padding: 2.2rem 2.2rem 1.2rem 2.2rem;
+  font-size: 1rem;
+  padding: 1.8rem 1.8rem 1rem 1.8rem;
   z-index: 2;
-  box-shadow: 0 0 32px 0 rgba(34, 211, 238, 0.08);
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .price-row {
   position: absolute;
-  bottom: 110px;
+  bottom: 100px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   font-family: 'Oswald', Arial, sans-serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: #fff;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
 .price {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #fff;
 }
 .select-btn {
   position: absolute;
-  bottom: 38px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
   color: #222;
   font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 0.7rem 2.8rem 0.7rem 2.8rem;
+  padding: 0.6rem 2.4rem 0.6rem 2.4rem;
   border: none;
   border-radius: 4px 0 8px 8px;
   box-shadow: 0 2px 12px 0 rgba(34, 211, 238, 0.08);
   cursor: pointer;
   z-index: 2;
-  min-width: 140px;
+  min-width: 120px;
   transition: background 0.2s, color 0.2s;
 }
 .select-btn:hover {

@@ -596,9 +596,9 @@ const scen2 = [
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  gap: 32px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  gap: 24px;
+  margin-top: 28px;
+  margin-bottom: 28px;
 }
 .pricing-card ul {
   list-style: none;
@@ -606,18 +606,18 @@ const scen2 = [
   margin: 0;
 }
 .pricing-card li {
-  margin-bottom: 14px;
-  font-size: 1.08rem;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
   letter-spacing: 0.02em;
   position: relative;
-  padding-left: 18px;
+  padding-left: 16px;
 }
 .pricing-card li:before {
   content: '✦';
   color: #ffb6ff;
   position: absolute;
   left: 0;
-  font-size: 1.1em;
+  font-size: 1em;
   top: 0.1em;
 }
 </style> 
