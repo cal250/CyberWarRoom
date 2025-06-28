@@ -5,7 +5,9 @@ const route = useRoute()
 
 <template>
   <div class="app-bg">
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -15,5 +17,16 @@ const route = useRoute()
   display: flex;
   flex-direction: column;
   background: #0a0a13;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), filter 0.8s cubic-bezier(.4,0,.2,1);
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  filter: blur(12px);
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+  filter: blur(0);
 }
 </style>
