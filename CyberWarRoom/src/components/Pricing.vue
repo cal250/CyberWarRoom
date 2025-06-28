@@ -220,7 +220,7 @@ const scen2 = [
   max-width: 500px;
 }
 .main-title {
-  font-size: 7.2rem;
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 0;

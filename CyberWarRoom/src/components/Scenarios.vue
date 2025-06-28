@@ -34,8 +34,16 @@
     <div class="blend-content-wrapper">
       <div class="blend-content">
         <h1 class="main-title">SCENARIOS</h1>
-        <img src="@/assets/Scen1.png" alt="Scenario 1" class="scenario-img" />
-        <img src="@/assets/Scen2.png" alt="Scenario 2" class="scenario-img" />
+        <div class="scenarios-grid">
+          <!-- First row -->
+          <ScenarioCard title="RANSOMWARE RESPONSE" :image="img1" />
+          <ScenarioCard title="CLOUD INTRUSION" :image="img2" />
+          <ScenarioCard title="PHISHING ATTACK" :image="img3" />
+          <!-- Second row -->
+          <ScenarioCard title="DATA BREACH" :image="img4" />
+          <ScenarioCard title="INSIDER THREAT" :image="img5" />
+          <ScenarioCard title="SOCIAL ENGINEERING" :image="img6" />
+        </div>
       </div>
     </div>
     <!-- Footer -->
@@ -62,7 +70,13 @@
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import NavButton from './NavButton.vue'
-import ScenarioRow from './ScenarioRow.vue'
+import ScenarioCard from './ScenarioCard.vue'
+import img1 from '@/assets/artem-bryzgalov-r2CAjGQ0gSI-unsplash.jpg'
+import img2 from '@/assets/maximalfocus-76McKuOlI5U-unsplash.jpg'
+import img3 from '@/assets/kenny-eliason-mgYAR7BzBk4-unsplash.jpg'
+import img4 from '@/assets/muha-ajjan-sL2BRR1cuvM-unsplash.jpg'
+import img5 from '@/assets/michael-dziedzic-aQYgUYwnCsM-unsplash.jpg'
+import img6 from '@/assets/adi-goldstein-EUsVwEOsblE-unsplash.jpg'
 const $route = useRoute()
 const isMuted = ref(false)
 
@@ -177,7 +191,7 @@ const scen2 = [
   max-width: 500px;
 }
 .main-title {
-  font-size: 7.2rem;
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 1.15;
   margin-bottom: 0;
@@ -547,5 +561,63 @@ const scen2 = [
   /* border-radius: 18px; */
   /* box-shadow: 0 0 32px 0 rgba(34, 211, 238, 0.12); */
   /* border: 2px solid #22d3ee; */
+}
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  justify-items: center;
+  max-width: 100vw;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+.scenario-item {
+  flex: 1 1 0;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+}
+.scenario-item:first-child .scenario-img-small,
+.scenario-item:nth-child(2) .scenario-img-small,
+.scenario-item:nth-child(3) .scenario-img-small {
+  max-width: 125%;
+  max-height: 275px;
+}
+.scenario-item:hover {
+  box-shadow: 0 0 24px #22d3ee, 0 0 48px #22d3ee80;
+  z-index: 2;
+}
+.scenario-img-small {
+  max-width: 100%;
+  max-height: 220px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  filter: brightness(0.8);
+}
+.scenario-item:hover .scenario-img-small {
+  /* Remove border and box-shadow from image hover */
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+@media (max-width: 900px) {
+  .scenario-row {
+    flex-direction: column;
+    gap: 18px;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .scenario-item {
+    width: 100%;
+  }
+  .scenario-img-small {
+    max-width: 100%;
+    max-height: 180px;
+  }
 }
 </style> 

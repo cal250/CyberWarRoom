@@ -1,5 +1,5 @@
 <template>
-  <div class="pricing-card">
+  <div class="pricing-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
     <div class="plan-tab">
       <slot name="title">PLAN</slot>
     </div>
@@ -12,14 +12,23 @@
     <button class="select-btn"><slot name="button">SELECT</slot></button>
     <svg class="card-bg-svg" width="360" height="620" viewBox="0 0 360 620" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M360 515.028L281.168 595H0V121.664L94.168 27.5H360V515.028Z" fill="#070708" fill-opacity="0.52"/>
-      <path d="M360 515.028L281.168 595H0V121.664L94.168 27.5H360V515.028Z" stroke="#66E0F8"/>
+      <path
+        d="M360 515.028L281.168 595H0V121.664L94.168 27.5H360V515.028Z"
+        stroke="#66E0F8"
+        :filter="hovered ? 'url(#glow)' : ''"
+      />
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#22d3ee" />
+        <feDropShadow dx="0" dy="0" stdDeviation="12" flood-color="#22d3ee" />
+      </filter>
       <rect width="292" height="306" x="34" y="138" fill="white" fill-opacity="0.08"/>
-      <!-- corner decorations omitted for brevity -->
     </svg>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+const hovered = ref(false)
 </script>
 
 <style scoped>
@@ -32,15 +41,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-}
-.card-bg-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
+  transition: filter 0.3s;
 }
 .plan-tab {
   position: absolute;
@@ -68,14 +69,13 @@
   width: 280px;
   min-height: 280px;
   background: rgba(10, 20, 40, 0.82);
-  
   border-radius: 8px;
   color: #fff;
   font-family: 'Oswald', Arial, sans-serif;
   font-size: 1rem;
   padding: 1.8rem 1.8rem 1rem 1.8rem;
   z-index: 2;
- 
+  box-shadow: 0 0 32px 0 rgba(34, 211, 238, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,5 +120,14 @@
 .select-btn:hover {
   background: #66E0F8;
   color: #111;
+}
+.card-bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 </style> 
