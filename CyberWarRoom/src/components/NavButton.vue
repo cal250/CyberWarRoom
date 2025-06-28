@@ -23,7 +23,7 @@ const svgFill = computed(() => {
   if (isLogin.value) {
     return props.active ? '#22d3ee' : '#6ee7ff';
   }
-  return props.active ? '#fff' : '#3a3e47';
+  return props.active ? '#fff' : '#6c707a';
 })
 </script>
 
@@ -54,7 +54,7 @@ const svgFill = computed(() => {
   justify-content: center;
   font-family: 'Oswald', Arial, sans-serif;
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #fff;
