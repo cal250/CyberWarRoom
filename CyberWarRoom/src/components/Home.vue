@@ -24,7 +24,7 @@
           <NavButton to="/scenarios" label="SCENARIOS" :active="$route.path === '/scenarios'" />
           <NavButton to="/pricing" label="PRICING" :active="$route.path === '/pricing'" />
           <!-- Sound Icon Button -->
-          <button class="sound-btn" @click="isMuted = !isMuted" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
+          <button class="sound-btn" @click="toggleMute" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
             <svg v-if="isMuted" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9 9H5v6h4l5 5V4l-5 5z" stroke="#b6eaff" stroke-width="2" fill="none"/>
               <line x1="19" y1="5" x2="5" y2="19" stroke="#ff0055" stroke-width="2"/>
@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import NavButton from './NavButton.vue'
 const $route = useRoute()
@@ -103,8 +103,9 @@ const stages = [
   { progress: 100, text: 'ACCESS GRANTED' }
 ]
 
-// Mic mute state
-const isMuted = ref(false)
+// Use global mute state
+const isMuted = inject('isMuted')
+const toggleMute = inject('toggleMute')
 
 function updateLoading(stage = 0) {
   if (stage < stages.length) {

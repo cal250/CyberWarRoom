@@ -10,7 +10,7 @@
         <NavButton to="/scenarios" label="SCENARIOS" :active="$route.path === '/scenarios'" />
         <NavButton to="/pricing" label="PRICING" :active="$route.path === '/pricing'" />
         <!-- Sound Icon Button -->
-        <button class="sound-btn" @click="isMuted = !isMuted" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
+        <button class="sound-btn" @click="toggleMute" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
           <svg v-if="isMuted" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 9H5v6h4l5 5V4l-5 5z" stroke="#b6eaff" stroke-width="2" fill="none"/>
             <line x1="19" y1="5" x2="5" y2="19" stroke="#ff0055" stroke-width="2"/>
@@ -82,7 +82,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import NavButton from './NavButton.vue'
 import ScenarioCard from './ScenarioCard.vue'
@@ -93,7 +93,10 @@ import img4 from '@/assets/muha-ajjan-sL2BRR1cuvM-unsplash.jpg'
 import img5 from '@/assets/michael-dziedzic-aQYgUYwnCsM-unsplash.jpg'
 import img6 from '@/assets/adi-goldstein-EUsVwEOsblE-unsplash.jpg'
 const $route = useRoute()
-const isMuted = ref(false)
+
+// Use global mute state
+const isMuted = inject('isMuted')
+const toggleMute = inject('toggleMute')
 
 const scenarioCards = [
   { title: 'RANSOMWARE RESPONSE', image: img1, message: 'Respond to a simulated ransomware attack. Make critical decisions to protect your organization.', details: `

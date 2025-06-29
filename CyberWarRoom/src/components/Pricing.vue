@@ -10,7 +10,7 @@
         <NavButton to="/scenarios" label="SCENARIOS" :active="$route.path === '/scenarios'" />
         <NavButton to="/pricing" label="PRICING" :active="$route.path === '/pricing'" />
         <!-- Sound Icon Button -->
-        <button class="sound-btn" @click="isMuted = !isMuted" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
+        <button class="sound-btn" @click="toggleMute" :aria-label="isMuted ? 'Unmute sound' : 'Mute sound'">
           <svg v-if="isMuted" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 9H5v6h4l5 5V4l-5 5z" stroke="#b6eaff" stroke-width="2" fill="none"/>
             <line x1="19" y1="5" x2="5" y2="19" stroke="#ff0055" stroke-width="2"/>
@@ -29,6 +29,14 @@
     <!-- Futuristic HUD box under construction 11 -->
     <div class="overlay-hud-box"></div>
     
+    <!-- Hidden audio element for background music -->
+    <audio
+      ref="bgm"
+      :src="audioSrc"
+      loop
+      :muted="isMuted"
+      style="display:none"
+    ></audio>
     
     <!-- Main content wrapper for flex grow -->
     <div class="blend-content-wrapper">
@@ -101,13 +109,45 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted, nextTick, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import NavButton from './NavButton.vue'
 import ScenarioRow from './ScenarioRow.vue'
 import PricingCard from './PricingCard.vue'
 const $route = useRoute()
-const isMuted = ref(false)
+
+// Use global mute state
+const isMuted = inject('isMuted')
+const toggleMute = inject('toggleMute')
+
+const audioSrc = new URL('@/assets/Royalty Free Music for Video Creators.mp3', import.meta.url).href
+const bgm = ref(null)
+
+// Ensure audio plays after user interaction (autoplay policy)
+onMounted(() => {
+  nextTick(() => {
+    document.body.addEventListener('click', () => {
+      if (bgm.value) {
+        console.log('Trying to play audio:', bgm.value);
+        bgm.value.muted = isMuted.value;
+        bgm.value.volume = 0.5;
+        bgm.value.play().then(() => {
+          console.log('Audio started!');
+        }).catch((e) => {
+          console.error('Audio play error:', e);
+        });
+      } else {
+        console.error('No audio element found');
+      }
+    }, { once: true });
+  });
+});
+
+watch(isMuted, (val) => {
+  if (bgm.value) {
+    bgm.value.muted = val
+  }
+})
 
 // Example scenario data
 const scen1 = [
