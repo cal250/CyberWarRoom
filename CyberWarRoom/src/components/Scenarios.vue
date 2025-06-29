@@ -147,11 +147,261 @@ const scenarioCards = [
       </svg>
     </div>
   ` },
-  { title: 'CLOUD INTRUSION', image: img2, message: 'Investigate and mitigate a cloud infrastructure breach. Trace the attacker and secure your assets.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Your company's cloud environment is under attack. Trace the breach, identify the attacker's methods, and secure your assets before data is lost.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – LOG HUNT:</b> Analyze cloud logs to find the attacker's entry point.</li><li><b>MISSION 2 – CONTAINMENT:</b> Isolate compromised resources and prevent lateral movement.</li><li><b>MISSION 3 – RECOVERY:</b> Restore services and report the incident to stakeholders.</li></ul></div></div>` },
-  { title: 'PHISHING ATTACK', image: img3, message: 'Identify and respond to a sophisticated phishing campaign targeting your company.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A wave of phishing emails is targeting your company. Identify malicious messages and educate your team to prevent compromise.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – INBOX INSPECTION:</b> Review employee inboxes for suspicious emails.</li><li><b>MISSION 2 – EMPLOYEE TRAINING:</b> Conduct a simulated phishing test and analyze results.</li><li><b>MISSION 3 – INCIDENT RESPONSE:</b> Respond to a successful phishing attack and mitigate damage.</li></ul></div></div>` },
-  { title: 'DATA BREACH', image: img4, message: 'Contain and analyze a major data breach. Communicate with stakeholders and regulators.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A major data breach has occurred. Analyze the breach, contain the threat, and communicate with stakeholders and regulators.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – BREACH ANALYSIS:</b> Determine the scope and impact of the breach.</li><li><b>MISSION 2 – CONTAINMENT:</b> Stop further data loss and secure affected systems.</li><li><b>MISSION 3 – PUBLIC RELATIONS:</b> Prepare statements and handle media inquiries.</li></ul></div></div>` },
-  { title: 'INSIDER THREAT', image: img5, message: 'Detect and stop a malicious insider before critical data is exfiltrated.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Suspicious activity suggests an insider is planning to steal sensitive data. Investigate and stop the threat before it's too late.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – USER BEHAVIOR ANALYSIS:</b> Review logs for unusual access patterns.</li><li><b>MISSION 2 – INTERVIEW:</b> Question employees and gather evidence.</li><li><b>MISSION 3 – PREVENTION:</b> Implement controls to prevent future incidents.</li></ul></div></div>` },
-  { title: 'SOCIAL ENGINEERING', image: img6, message: 'Navigate a social engineering scenario and train your team to recognize manipulation.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Attackers are using social engineering tactics to manipulate employees. Train your team to recognize and resist these attacks.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – PHONE SCAM:</b> Identify vishing attempts targeting staff.</li><li><b>MISSION 2 – PHYSICAL SECURITY:</b> Test building access controls against tailgating.</li><li><b>MISSION 3 – AWARENESS CAMPAIGN:</b> Launch a company-wide security awareness campaign.</li></ul></div></div>` },
+  { title: 'CLOUD INTRUSION', image: img2, message: 'Investigate and mitigate a cloud infrastructure breach. Trace the attacker and secure your assets.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>Your company's cloud environment is under attack. Trace the breach, identify the attacker's methods, and secure your assets before data is lost.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – LOG HUNT:</span> Analyze cloud logs to find the attacker's entry point.</li>
+              <li><span class='mission-title'>★ MISSION 2 – CONTAINMENT:</span> Isolate compromised resources and prevent lateral movement.</li>
+              <li><span class='mission-title'>★ MISSION 3 – RECOVERY:</span> Restore services and report the incident to stakeholders.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – RECOVER & REPORT</div>
+            <span class='svg-section-content'>Restore and report on the incident.</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
+  { title: 'PHISHING ATTACK', image: img3, message: 'Identify and respond to a sophisticated phishing campaign targeting your company.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>A wave of phishing emails is targeting your company. Identify malicious messages and educate your team to prevent compromise.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – INBOX INSPECTION:</span> Review employee inboxes for suspicious emails.</li>
+              <li><span class='mission-title'>★ MISSION 2 – EMPLOYEE TRAINING:</span> Conduct a simulated phishing test and analyze results.</li>
+              <li><span class='mission-title'>★ MISSION 3 – INCIDENT RESPONSE:</span> Respond to a successful phishing attack and mitigate damage.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – INCIDENT RESPONSE</div>
+            <span class='svg-section-content'>Respond and mitigate damage.</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
+  { title: 'DATA BREACH', image: img4, message: 'Contain and analyze a major data breach. Communicate with stakeholders and regulators.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>A major data breach has occurred. Analyze the breach, contain the threat, and communicate with stakeholders and regulators.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – BREACH ANALYSIS:</span> Determine the scope and impact of the breach.</li>
+              <li><span class='mission-title'>★ MISSION 2 – CONTAINMENT:</span> Stop further data loss and secure affected systems.</li>
+              <li><span class='mission-title'>★ MISSION 3 – PUBLIC RELATIONS:</span> Prepare statements and handle media inquiries.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – PUBLIC RELATIONS</div>
+            <span class='svg-section-content'>Prepare statements and handle media inquiries.</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
+  { title: 'INSIDER THREAT', image: img5, message: 'Detect and stop a malicious insider before critical data is exfiltrated.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>Suspicious activity suggests an insider is planning to steal sensitive data. Investigate and stop the threat before it's too late.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – USER BEHAVIOR ANALYSIS:</span> Review logs for unusual access patterns.</li>
+              <li><span class='mission-title'>★ MISSION 2 – INTERVIEW:</span> Question employees and gather evidence.</li>
+              <li><span class='mission-title'>★ MISSION 3 – PREVENTION:</span> Implement controls to prevent future incidents.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – PREVENTION</div>
+            <span class='svg-section-content'>Implement controls to prevent future incidents.</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
+  { title: 'SOCIAL ENGINEERING', image: img6, message: 'Navigate a social engineering scenario and train your team to recognize manipulation.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>Attackers are using social engineering tactics to manipulate employees. Train your team to recognize and resist these attacks.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – PHONE SCAM:</span> Identify vishing attempts targeting staff.</li>
+              <li><span class='mission-title'>★ MISSION 2 – PHYSICAL SECURITY:</span> Test building access controls against tailgating.</li>
+              <li><span class='mission-title'>★ MISSION 3 – AWARENESS CAMPAIGN:</span> Launch a company-wide security awareness campaign.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – AWARENESS</div>
+            <span class='svg-section-content'>Launch a company-wide security awareness campaign.</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
 ]
 const selectedScenario = ref(null)
 const showOverlay = ref(false)
@@ -803,8 +1053,14 @@ function closeOverlay() {
   box-shadow: 0 0 48px 0 #22d3eecc, 0 0 0 2px #22d3ee44 inset;
   border-radius: 24px;
   background: rgba(34, 211, 238, 0.04);
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   width: 100%;
+}
+.details-section {
+  margin-bottom: 48px;
+}
+.details-section:last-child {
+  margin-bottom: 0;
 }
 .svg-message-content {
   width: 100%;
