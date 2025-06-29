@@ -34,8 +34,8 @@
     <div class="blend-content-wrapper">
       <div class="blend-content">
         <h1 class="main-title"> PRICING</h1>
-        <div class="pricing-cards-row">
-          <PricingCard>
+        <transition-group name="pricing-fade" tag="div" class="pricing-cards-row" appear>
+          <PricingCard :key="'starter'">
             <template #title>STARTER</template>
             <template #features>
               <ul>
@@ -49,7 +49,7 @@
             <template #price>$9.99 <span style="font-size:1.1rem;font-weight:400;">/mo</span></template>
             <template #button>SELECT</template>
           </PricingCard>
-          <PricingCard>
+          <PricingCard :key="'pro'">
             <template #title>PRO</template>
             <template #features>
               <ul>
@@ -63,7 +63,7 @@
             <template #price>$19.99 <span style="font-size:1.1rem;font-weight:400;">/mo</span></template>
             <template #button>SELECT</template>
           </PricingCard>
-          <PricingCard>
+          <PricingCard :key="'enterprise'">
             <template #title>ENTERPRISE</template>
             <template #features>
               <ul>
@@ -77,7 +77,7 @@
             <template #price>$39.99 <span style="font-size:1.1rem;font-weight:400;">/mo</span></template>
             <template #button>SELECT</template>
           </PricingCard>
-        </div>
+        </transition-group>
       </div>
     </div>
     <!-- Footer -->
@@ -619,5 +619,25 @@ const scen2 = [
   left: 0;
   font-size: 1em;
   top: 0.1em;
+}
+.pricing-fade-enter-from {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
+.pricing-fade-enter-active {
+  transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.pricing-fade-enter-to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.pricing-cards-row > *:nth-child(1) {
+  transition-delay: 0.05s !important;
+}
+.pricing-cards-row > *:nth-child(2) {
+  transition-delay: 0.10s !important;
+}
+.pricing-cards-row > *:nth-child(3) {
+  transition-delay: 0.15s !important;
 }
 </style> 
