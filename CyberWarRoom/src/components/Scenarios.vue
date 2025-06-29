@@ -45,38 +45,36 @@
           />
         </div>
       </div>
-      <!-- Overlay for selected scenario -->
-      <div v-if="showOverlay" class="scenario-overlay" @click.self="closeOverlay">
-        <div class="overlay-content">
-          <!-- Left: Scenario image and title -->
-          <div class="overlay-left">
-            <svg
-              class="responce-svg-card"
-              width="562" height="157" viewBox="0 0 562 157" fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="560" height="155.69" transform="translate(1 1)" fill="white" fill-opacity="0.08"/>
-              <path d="M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-              <path d="M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-              <path d="M558.48 123H561V156.69H527.31V154.17H558.48V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-              <path d="M3.52 123H1V156.69H34.69V154.17H3.52V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-              <foreignObject x="40" y="20" width="480" height="120">
-                <div class="svg-message-content" xmlns="http://www.w3.org/1999/xhtml">
-                  <img v-if="selectedScenario?.image" :src="selectedScenario.image" class="overlay-scenario-img" alt="Scenario image" />
-                  <h2>{{ selectedScenario?.title }}</h2>
-                </div>
-              </foreignObject>
-            </svg>
+      <!-- Sidebar for selected scenario -->
+      <div v-if="showOverlay" class="scenario-sidebar">
+        <div class="sidebar-content">
+          <!-- SVG Message Border around scenario details -->
+          <svg
+            class="message-border-svg"
+            width="100%" height="100%" viewBox="0 0 562 157" fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="560" height="155.69" transform="translate(1 1)" fill="white" fill-opacity="0.08"/>
+            <path d="M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M558.48 123H561V156.69H527.31V154.17H558.48V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+            <path d="M3.52 123H1V156.69H34.69V154.17H3.52V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
+            <foreignObject x="40" y="20" width="480" height="120">
+              <div class="svg-message-content" xmlns="http://www.w3.org/1999/xhtml">
+                <img v-if="selectedScenario?.image" :src="selectedScenario.image" class="sidebar-scenario-img" alt="Scenario image" />
+                <h2>{{ selectedScenario?.title }}</h2>
+              </div>
+            </foreignObject>
+          </svg>
+          
+          <!-- Scenario details panel -->
+          <div class="sidebar-details-panel">
+            <slot name="details">
+              <div v-html="selectedScenario?.details"></div>
+            </slot>
           </div>
-          <!-- Right: Scenario details -->
-          <div class="overlay-right">
-            <div class="overlay-details-panel">
-              <slot name="details">
-                <div v-html="selectedScenario?.details"></div>
-              </slot>
-            </div>
-          </div>
-          <button class="close-overlay-btn" @click="closeOverlay">&times;</button>
+          
+          <button class="close-sidebar-btn" @click="closeOverlay">&times;</button>
         </div>
       </div>
     </div>
@@ -661,66 +659,80 @@ function closeOverlay() {
     max-height: 180px;
   }
 }
-.scenario-overlay {
+.scenario-sidebar {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
+  width: 45vw;
   height: 100vh;
   background: rgba(10, 20, 40, 0.96);
   backdrop-filter: blur(8px) saturate(1.3);
-  box-shadow: 0 0 64px 8px #22d3ee44, 0 0 0 2px #22d3ee22 inset;
+  box-shadow: -4px 0 64px 8px #22d3ee44, 0 0 0 2px #22d3ee22 inset;
   z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 0.3s;
-}
-.overlay-content {
-  display: flex;
-  flex-direction: row;
-  width: 80vw;
-  max-width: 1200px;
-  min-height: 60vh;
-  background: none;
-  position: relative;
-  z-index: 2010;
-}
-.overlay-left {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2vw 0 0;
-}
-.overlay-scenario-img {
-  width: 120px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 0 16px #22d3ee99;
-}
-.overlay-right {
-  flex: 2 1 0;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  animation: slideIn 0.4s ease-out;
+  overflow-y: auto;
 }
-.overlay-details-panel {
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  position: relative;
+  z-index: 2010;
+}
+.message-border-svg {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 32px;
+  box-shadow: 0 0 32px 0 #22d3ee99, 0 0 0 2px #22d3ee44 inset;
+  border-radius: 12px;
+  background: rgba(34, 211, 238, 0.04);
+  filter: drop-shadow(0 0 16px #00fff7cc);
+}
+.svg-message-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.1rem;
+  padding: 20px;
+  word-break: break-word;
+}
+.svg-message-content h2 {
+  font-size: 1.4rem;
+  margin: 12px 0 8px 0;
+  color: #b6eaff;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.sidebar-scenario-img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 12px #22d3ee99;
+}
+.sidebar-details-panel {
   background: rgba(20, 30, 50, 0.98);
   border: 2px solid #22d3ee;
-  box-shadow: 0 0 48px 0 #22d3ee55, 0 0 0 2px #22d3ee22 inset;
-  border-radius: 18px;
-  padding: 36px 40px;
-  margin-left: 0;
-  min-width: 400px;
-  max-width: 600px;
+  box-shadow: 0 0 32px 0 #22d3ee55, 0 0 0 2px #22d3ee22 inset;
+  border-radius: 16px;
+  padding: 32px 36px;
   color: #fff;
   font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   overflow-y: auto;
-  max-height: 65vh;
+  flex: 1;
+  margin-bottom: 20px;
 }
 .details-section h3 {
   color: #b6eaff;
@@ -740,50 +752,38 @@ function closeOverlay() {
 .details-section li {
   margin-bottom: 8px;
 }
-.responce-svg-card {
-  box-shadow: 0 0 48px 0 #22d3eecc, 0 0 0 2px #22d3ee44 inset;
-  border-radius: 18px;
-  background: rgba(34, 211, 238, 0.04);
-  max-width: 90vw;
-  max-height: 60vh;
-  filter: drop-shadow(0 0 24px #00fff7cc);
-}
-.svg-message-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.1rem;
-  padding: 0 12px;
-  word-break: break-word;
-}
-.svg-message-content h2 {
-  font-size: 1.3rem;
-  margin: 0 0 8px 0;
-  color: #b6eaff;
-}
-.close-overlay-btn {
+.close-sidebar-btn {
   position: absolute;
-  top: 3vh;
-  right: 3vw;
-  font-size: 2.2rem;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
   background: none;
   border: none;
   color: #fff;
   cursor: pointer;
   z-index: 2100;
   transition: color 0.2s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.1);
 }
-.close-overlay-btn:hover {
+.close-sidebar-btn:hover {
   color: #22d3ee;
+  background: rgba(34, 211, 238, 0.2);
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes slideIn {
+  from { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to { 
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 .scenario-item.active {
   box-shadow: 0 0 48px 12px #22d3ee, 0 0 96px 24px #00fff7a0;
