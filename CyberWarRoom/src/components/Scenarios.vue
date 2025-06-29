@@ -48,25 +48,8 @@
       <!-- Sidebar for selected scenario -->
       <div v-if="showOverlay" class="scenario-sidebar">
         <div class="sidebar-content">
-          <!-- SVG Message Border around scenario details -->
-          <svg
-            class="message-border-svg"
-            width="100%" height="100%" viewBox="0 0 562 157" fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="560" height="155.69" transform="translate(1 1)" fill="white" fill-opacity="0.08"/>
-            <path d="M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-            <path d="M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-            <path d="M558.48 123H561V156.69H527.31V154.17H558.48V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-            <path d="M3.52 123H1V156.69H34.69V154.17H3.52V123Z" fill="#CAE8F3" stroke="#1D1D1B" stroke-width="0.25" stroke-miterlimit="10"/>
-            <foreignObject x="40" y="20" width="480" height="120">
-              <div class="svg-message-content" xmlns="http://www.w3.org/1999/xhtml">
-                <img v-if="selectedScenario?.image" :src="selectedScenario.image" class="sidebar-scenario-img" alt="Scenario image" />
-                <h2>{{ selectedScenario?.title }}</h2>
-              </div>
-            </foreignObject>
-          </svg>
-          
+          <!-- Scenario title -->
+          <div class="sidebar-title">{{ selectedScenario?.title }}</div>
           <!-- Scenario details panel -->
           <div class="sidebar-details-panel">
             <slot name="details">
@@ -113,7 +96,57 @@ const $route = useRoute()
 const isMuted = ref(false)
 
 const scenarioCards = [
-  { title: 'RANSOMWARE RESPONSE', image: img1, message: 'Respond to a simulated ransomware attack. Make critical decisions to protect your organization.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>The year is 2042. You're a junior analyst at SynSec, a global cybersecurity agency defending against digital warfare, deepfake leaks, rogue AI, and zero-day exploits. But when your team lead mysteriously disappears and the agency is compromised from the inside, you're thrown into a race against time to stop a massive cyberattack called Black Frost.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – PHISHING LABYRINTH:</b> You enter a simulation of a fake corporate email system. Your task: Spot real vs phishing emails before time runs out. Each mistake lets malware infect more of the system.</li><li><b>MISSION 2 – DEEPFAKE DECRYPTION:</b> A celebrity is being blackmailed with an AI-generated video. Your job: Analyze audio patterns, video artifacts, and metadata to detect tampering.</li><li><b>MISSION 3 – PHYSICAL BREACH:</b> You go undercover at a tech convention to locate a rogue USB keylogger. Dialogue choices affect how much info NPCs reveal.</li></ul></div><div class='details-section'><h3>FINAL MISSION – STOP THE PAYLOAD</h3></div></div>` },
+  { title: 'RANSOMWARE RESPONSE', image: img1, message: 'Respond to a simulated ransomware attack. Make critical decisions to protect your organization.', details: `
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='170' viewBox='0 0 562 170' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='168' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 135H561V168.69H527.31V166.17H558.48V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 135H1V168.69H34.69V166.17H3.52V135Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='134'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>PREMISE / SETTING:</div>
+            <p class='svg-section-content'>The year is 2042. You're a junior analyst at SynSec, a global cybersecurity agency defending against digital warfare, deepfake leaks, rogue AI, and zero-day exploits. But when your team lead mysteriously disappears and the agency is compromised from the inside, you're thrown into a race against time to stop a massive cyberattack called Black Frost.</p>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='320' viewBox='0 0 562 320' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='318' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 34.69H1V1H34.69V3.52H3.52V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 34.69H561V1H527.31V3.52H558.48V34.69Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 285H561V318.69H527.31V316.17H558.48V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 285H1V318.69H34.69V316.17H3.52V285Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='284'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>MISSION PROGRESSION</div>
+            <ul class='svg-section-content'>
+              <li><span class='mission-title'>★ MISSION 1 – PHISHING LABYRINTH:</span> You enter a simulation of a fake corporate email system. Your task: Spot real vs phishing emails before time runs out. Each mistake lets malware infect more of the system.</li>
+              <li><span class='mission-title'>★ MISSION 2 – DEEPFAKE DECRYPTION:</span> A celebrity is being blackmailed with an AI-generated video. Your job: Analyze audio patterns, video artifacts, and metadata to detect tampering.</li>
+              <li><span class='mission-title'>★ MISSION 3 – PHYSICAL BREACH:</span> You go undercover at a tech convention to locate a rogue USB keylogger. Dialogue choices affect how much info NPCs reveal.</li>
+            </ul>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+    <div class='details-section'>
+      <svg class='responce-svg-card' width='100%' height='120' viewBox='0 0 562 120' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='560' height='118' transform='translate(1 1)' fill='white' fill-opacity='0.08'/>
+        <path d='M3.52 20H1V1H34.69V3.52H3.52V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 20H561V1H527.31V3.52H558.48V20Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M558.48 90H561V118.69H527.31V116.17H558.48V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <path d='M3.52 90H1V118.69H34.69V116.17H3.52V90Z' fill='#CAE8F3' stroke='#1D1D1B' stroke-width='0.25' stroke-miterlimit='10'/>
+        <foreignObject x='32' y='18' width='498' height='84'>
+          <div class='svg-message-content' xmlns='http://www.w3.org/1999/xhtml'>
+            <div class='svg-section-header'>FINAL MISSION – STOP THE PAYLOAD</div>
+            <span class='svg-section-content'>STOP THE PAYLOAD</span>
+          </div>
+        </foreignObject>
+      </svg>
+    </div>
+  ` },
   { title: 'CLOUD INTRUSION', image: img2, message: 'Investigate and mitigate a cloud infrastructure breach. Trace the attacker and secure your assets.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>Your company's cloud environment is under attack. Trace the breach, identify the attacker's methods, and secure your assets before data is lost.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – LOG HUNT:</b> Analyze cloud logs to find the attacker's entry point.</li><li><b>MISSION 2 – CONTAINMENT:</b> Isolate compromised resources and prevent lateral movement.</li><li><b>MISSION 3 – RECOVERY:</b> Restore services and report the incident to stakeholders.</li></ul></div></div>` },
   { title: 'PHISHING ATTACK', image: img3, message: 'Identify and respond to a sophisticated phishing campaign targeting your company.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A wave of phishing emails is targeting your company. Identify malicious messages and educate your team to prevent compromise.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – INBOX INSPECTION:</b> Review employee inboxes for suspicious emails.</li><li><b>MISSION 2 – EMPLOYEE TRAINING:</b> Conduct a simulated phishing test and analyze results.</li><li><b>MISSION 3 – INCIDENT RESPONSE:</b> Respond to a successful phishing attack and mitigate damage.</li></ul></div></div>` },
   { title: 'DATA BREACH', image: img4, message: 'Contain and analyze a major data breach. Communicate with stakeholders and regulators.', details: `<div><div class='details-section'><h3>PREMISE / SETTING:</h3><p>A major data breach has occurred. Analyze the breach, contain the threat, and communicate with stakeholders and regulators.</p></div><div class='details-section'><h3>MISSION PROGRESSION</h3><ul><li><b>MISSION 1 – BREACH ANALYSIS:</b> Determine the scope and impact of the breach.</li><li><b>MISSION 2 – CONTAINMENT:</b> Stop further data loss and secure affected systems.</li><li><b>MISSION 3 – PUBLIC RELATIONS:</b> Prepare statements and handle media inquiries.</li></ul></div></div>` },
@@ -152,7 +185,7 @@ function closeOverlay() {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 60px;
+  padding: 32px 60px 32px 80px;
   position: absolute;
   top: 0;
   left: 0;
@@ -665,9 +698,9 @@ function closeOverlay() {
   right: 0;
   width: 45vw;
   height: 100vh;
-  background: rgba(10, 20, 40, 0.96);
-  backdrop-filter: blur(8px) saturate(1.3);
-  box-shadow: -4px 0 64px 8px #22d3ee44, 0 0 0 2px #22d3ee22 inset;
+  background: rgba(10, 10, 20, 0.82);
+  border: none;
+  box-shadow: none;
   z-index: 2000;
   display: flex;
   align-items: flex-start;
@@ -680,53 +713,15 @@ function closeOverlay() {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 40px 32px;
+  padding-top: 48px;
   position: relative;
   z-index: 2010;
 }
-.message-border-svg {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 32px;
-  box-shadow: 0 0 32px 0 #22d3ee99, 0 0 0 2px #22d3ee44 inset;
-  border-radius: 12px;
-  background: rgba(34, 211, 238, 0.04);
-  filter: drop-shadow(0 0 16px #00fff7cc);
-}
-.svg-message-content {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-family: 'Oswald', Arial, sans-serif;
-  font-size: 1.1rem;
-  padding: 20px;
-  word-break: break-word;
-}
-.svg-message-content h2 {
-  font-size: 1.4rem;
-  margin: 12px 0 8px 0;
-  color: #b6eaff;
-  text-align: center;
-  letter-spacing: 0.04em;
-}
-.sidebar-scenario-img {
-  width: 80px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0 0 12px #22d3ee99;
-}
 .sidebar-details-panel {
-  background: rgba(20, 30, 50, 0.98);
-  border: 2px solid #22d3ee;
-  box-shadow: 0 0 32px 0 #22d3ee55, 0 0 0 2px #22d3ee22 inset;
-  border-radius: 16px;
-  padding: 32px 36px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
   color: #fff;
   font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
   font-size: 1.08rem;
@@ -734,23 +729,25 @@ function closeOverlay() {
   flex: 1;
   margin-bottom: 20px;
 }
-.details-section h3 {
+.section-header {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: #b6eaff;
-  font-size: 1.1rem;
-  margin: 18px 0 8px 0;
-  text-transform: uppercase;
+  margin: 32px 0 10px 0;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
-.details-section p, .details-section ul {
-  margin: 0 0 10px 0;
+.section-content {
+  font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 1.08rem;
   color: #fff;
-  font-size: 1.02rem;
+  margin-bottom: 18px;
+  line-height: 1.5;
 }
-.details-section ul {
-  padding-left: 18px;
-}
-.details-section li {
-  margin-bottom: 8px;
+.mission-title {
+  color: #ffb6b6;
+  font-weight: bold;
 }
 .close-sidebar-btn {
   position: absolute;
@@ -790,5 +787,51 @@ function closeOverlay() {
   transform: scale(1.045);
   z-index: 3;
   border-radius: 18px;
+}
+.sidebar-title {
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #b6eaff;
+  margin-bottom: 32px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  margin-left: 32px;
+}
+.responce-svg-card {
+  box-shadow: 0 0 48px 0 #22d3eecc, 0 0 0 2px #22d3ee44 inset;
+  border-radius: 24px;
+  background: rgba(34, 211, 238, 0.04);
+  margin-bottom: 40px;
+  width: 100%;
+}
+.svg-message-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #fff;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-size: 1.22rem;
+  padding: 0 32px;
+  word-break: break-word;
+}
+.svg-section-header {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  margin: 24px 0 18px 0;
+  color: #b6eaff;
+  text-transform: uppercase;
+}
+.svg-section-content {
+  font-family: 'Fira Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 1.32rem;
+  color: #fff;
+  margin-bottom: 18px;
+  line-height: 1.8;
 }
 </style> 
