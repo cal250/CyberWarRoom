@@ -34,7 +34,7 @@
     <div class="blend-content-wrapper">
       <div class="blend-content">
         <h1 class="main-title">SCENARIOS</h1>
-        <div class="scenarios-grid">
+        <transition-group name="scenario-fade" tag="div" class="scenarios-grid" appear>
           <ScenarioCard
             v-for="(card, idx) in scenarioCards"
             :key="card.title"
@@ -43,7 +43,7 @@
             :active="selectedScenario && selectedScenario.title === card.title"
             @select="onSelectScenario(card)"
           />
-        </div>
+        </transition-group>
       </div>
       <!-- Sidebar for selected scenario -->
       <div v-if="showOverlay" class="scenario-sidebar">
@@ -1089,5 +1089,34 @@ function closeOverlay() {
   color: #fff;
   margin-bottom: 18px;
   line-height: 1.8;
+}
+.scenario-fade-enter-from {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
+.scenario-fade-enter-active {
+  transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1), transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.scenario-fade-enter-to {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.scenarios-grid > *:nth-child(1) {
+  transition-delay: 0.05s !important;
+}
+.scenarios-grid > *:nth-child(2) {
+  transition-delay: 0.10s !important;
+}
+.scenarios-grid > *:nth-child(3) {
+  transition-delay: 0.15s !important;
+}
+.scenarios-grid > *:nth-child(4) {
+  transition-delay: 0.20s !important;
+}
+.scenarios-grid > *:nth-child(5) {
+  transition-delay: 0.25s !important;
+}
+.scenarios-grid > *:nth-child(6) {
+  transition-delay: 0.30s !important;
 }
 </style> 

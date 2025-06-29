@@ -37,9 +37,9 @@
     <div class="blend-content-wrapper">
       <div class="blend-content">
         <h1 class="main-title">ABOUT</h1>
-        <img src="@/assets/aboutf1.png" alt="What is a War Room?" class="about-img about-img-what" />
-        <img src="@/assets/aboutf2 (1).png" alt="Our Mission" class="about-img about-img-mission" />
-        <img src="@/assets/aboutf3.png" alt="Our Vision" class="about-img about-img-vision" />
+        <img src="@/assets/aboutf1.png" alt="What is a War Room?" class="about-img about-img-what animate-in-left" />
+        <img src="@/assets/aboutf2 (1).png" alt="Our Mission" class="about-img about-img-mission animate-in-up" />
+        <img src="@/assets/aboutf3.png" alt="Our Vision" class="about-img about-img-vision animate-in-right" />
       </div>
     </div>
     <!-- Footer -->
@@ -717,5 +717,29 @@ const isMuted = ref(false)
     left: unset;
     top: unset;
   }
+}
+.animate-in-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: about-in-left 1.1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s forwards;
+}
+.animate-in-right {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: about-in-right 1.1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s forwards;
+}
+.animate-in-up {
+  opacity: 0;
+  transform: translateY(-80px);
+  animation: about-in-up 1.1s cubic-bezier(0.23, 1, 0.32, 1) 0.6s forwards;
+}
+@keyframes about-in-left {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes about-in-right {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes about-in-up {
+  to { opacity: 1; transform: translateY(0); }
 }
 </style> 
