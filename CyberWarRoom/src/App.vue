@@ -13,6 +13,33 @@ provide('toggleMute', toggleMute)
 const audioSrc = new URL('@/assets/Royalty Free Music for Video Creators.mp3', import.meta.url).href
 const bgm = ref(null)
 
+// Cursor dot logic
+const dotX = ref(window.innerWidth / 2)
+const dotY = ref(window.innerHeight / 2)
+const dotVisible = ref(false)
+let animationFrame
+
+function animateDot(e) {
+  dotVisible.value = true
+  const targetX = e.clientX
+  const targetY = e.clientY
+  cancelAnimationFrame(animationFrame)
+  function move() {
+    dotX.value += (targetX - dotX.value) * 0.18
+    dotY.value += (targetY - dotY.value) * 0.18
+    if (Math.abs(dotX.value - targetX) > 0.5 || Math.abs(dotY.value - targetY) > 0.5) {
+      animationFrame = requestAnimationFrame(move)
+    } else {
+      dotX.value = targetX
+      dotY.value = targetY
+    }
+  }
+  move()
+}
+function hideDot() {
+  dotVisible.value = false
+}
+
 onMounted(() => {
   nextTick(() => {
     document.body.addEventListener('click', () => {
@@ -22,6 +49,11 @@ onMounted(() => {
         bgm.value.play().catch(() => {})
       }
     }, { once: true })
+    // Cursor dot events
+    const app = document.getElementById('app')
+    app.addEventListener('mousemove', animateDot)
+    app.addEventListener('mouseenter', () => { dotVisible.value = true })
+    app.addEventListener('mouseleave', hideDot)
   })
 })
 
@@ -38,6 +70,25 @@ function definedWatch(source, cb) {
 
 <template>
   <div id="app">
+    <!-- Blue glowing cursor dot -->
+    <div
+      v-if="dotVisible"
+      :style="{
+        position: 'fixed',
+        left: dotX + 'px',
+        top: dotY + 'px',
+        width: '18px',
+        height: '18px',
+        background: 'radial-gradient(circle, #3cf 70%, #09f 100%)',
+        borderRadius: '50%',
+        pointerEvents: 'none',
+        zIndex: 9999,
+        boxShadow: '0 0 24px 8px #3cf, 0 0 48px 16px #09f',
+        transform: 'translate(-50%, -50%)',
+        transition: 'background 0.2s',
+        opacity: 0.85
+      }"
+    ></div>
     <!-- Global background music -->
     <audio
       ref="bgm"
